@@ -19,3 +19,9 @@ ln -sf $HOME/Documents/dotfiles/dunst $HOME/.config
 ln -sf $HOME/Documents/dotfiles/polybar $HOME/.config
 
 ln -sf $HOME/Documents/dotfiles/rofi $HOME/.config
+
+ln -sf $HOME/Documents/dotfiles/nitrogen $HOME/.config
+
+ln -sf $HOME/Documents/dotfiles/picom $HOME/.config
+
+ln -sf $HOME/Documents/dotfiles/.zshrc $HOME
