@@ -1,0 +1,5 @@
+polybar|notice:  Parsing config file: /home/kipman/.config/polybar/config.ini
+polybar|notice:  Listening for IPC messages (PID: 260595)
+polybar|warn:  Polybar was not compiled with xcursor support, ignoring cursor-click option
+polybar|warn:  Polybar was not compiled with xcursor support, ignoring cursor-scroll option
+polybar|error: Uncaught exception, shutting down: No modules created
