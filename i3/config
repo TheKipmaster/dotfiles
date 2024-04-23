@@ -228,7 +228,7 @@ exec --no-startup-id gnome-terminal
 exec --no-startup-id gnome-system-monitor
 exec --no-startup-id nautilus
 exec --no-startup-id firefox
-exec --no-startup-id code ./.config # only for testing and debugging
+# exec --no-startup-id code ./Documents/dotfiles # only for testing and debugging
 
 # Configure redshift
 exec --no-startup-id redshift -P -t 4500:2500
