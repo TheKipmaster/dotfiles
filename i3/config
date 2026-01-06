@@ -192,6 +192,9 @@ assign [class="Org.gnome.Nautilus"] 4
 
 ### Center
 assign [class="Vivaldi"] 2
+assign [class="firefox"] 2
+assign [class="Chrome"] 2
+assign [class="google-chrome"] 2
 assign [class="Code"] 5
 assign [class="steam"] 8
 
