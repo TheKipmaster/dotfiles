@@ -25,3 +25,5 @@ ln -sf $HOME/Documents/dotfiles/nitrogen $HOME/.config
 ln -sf $HOME/Documents/dotfiles/picom $HOME/.config
 
 ln -sf $HOME/Documents/dotfiles/.zshrc $HOME
+
+ln -sf $HOME/Documents/dotfiles/.bashrc $HOME
