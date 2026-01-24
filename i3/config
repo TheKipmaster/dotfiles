@@ -188,7 +188,7 @@ workspace 9 output HDMI-1-0
 ####################### Open apps in specific workspaces #######################
 ### Left
 assign [class="Gnome-terminal"] 1
-assign [class="Org.gnome.Nautilus"] 4
+assign [class="org.gnome.Nautilus"] 4
 
 ### Center
 assign [class="Vivaldi"] 2
@@ -203,7 +203,7 @@ assign [class="Slack"] 3
 assign [class="discord"] 3
 assign [class="Spotify"] 6
 assign [class="Baobab"] 9
-assign [class="Gnome-system-monitor"] 9
+assign [class="gnome-system-monitor"] 9
 
 ################################################################################
 ########### Start up execs #####################################################
