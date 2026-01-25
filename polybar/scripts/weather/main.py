@@ -7,17 +7,17 @@ from requests.adapters import HTTPAdapter
 URL = "https://api.openweathermap.org/data/2.5/weather"
 # Get your API KEY here https://openweathermap.org/api,
 # and set an environment variable for OPENWEATHER_API_KEY with your API KEY.
-API_KEY = os.environ.get("OPENWEATHER_API_KEY", "970606528befaa317698cc75083db8b2")
+API_KEY = os.environ.get("OPENWEATHER_API_KEY", "df349b18e5e6e0c94e4f07399019e243")
 HEADER = {"User-agent": "Mozilla/5.0"}
 
 
 def get_city() -> str:
     try:
-        r = requests.get("https://ipapi.co/json", headers=HEADER)
+        r = requests.get("https://ipapi.co/json")
         return r.json()["city"]
-    except requests.exceptions.ConnectionError:
-        # print("E: couldn't get city name")
-        return "London (Default)"
+    except:
+        print("E: couldn't get city name")
+        return "Brasilia"
 
 
 def unit_suffix(unit: str) -> str:
