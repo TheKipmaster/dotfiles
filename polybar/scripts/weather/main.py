@@ -16,7 +16,7 @@ def get_city() -> str:
         r = requests.get("https://ipapi.co/json")
         return r.json()["city"]
     except:
-        print("E: couldn't get city name")
+        # print("E: couldn't get city name")
         return "Brasilia"
 
 
