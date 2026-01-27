@@ -200,6 +200,7 @@ assign [class="steam"] 8
 
 ### Right
 assign [class="Slack"] 3
+assign [class="obsidian"] 3
 assign [class="discord"] 3
 assign [class="Spotify"] 6
 assign [class="Baobab"] 9
