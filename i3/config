@@ -187,7 +187,7 @@ workspace 9 output HDMI-1-0
 
 ####################### Open apps in specific workspaces #######################
 ### Left
-assign [class="Gnome-terminal"] 1
+assign [class="kitty"] 1
 assign [class="org.gnome.Nautilus"] 4
 
 ### Center
