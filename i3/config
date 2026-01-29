@@ -232,6 +232,7 @@ exec --no-startup-id kitty
 exec --no-startup-id gnome-system-monitor
 exec --no-startup-id nautilus
 exec --no-startup-id firefox
+exec --no-startup-id obsidian
 # exec --no-startup-id code ./Documents/dotfiles # only for testing and debugging
 
 # Configure redshift
