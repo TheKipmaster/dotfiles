@@ -200,8 +200,9 @@ assign [class="steam"] 8
 
 ### Right
 assign [class="Slack"] 3
-assign [class="obsidian"] 3
 assign [class="discord"] 3
+assign [class="obsidian"] 3
+assign [class="todoist"] 3
 assign [class="Spotify"] 6
 assign [class="Baobab"] 9
 assign [class="gnome-system-monitor"] 9
@@ -233,6 +234,7 @@ exec --no-startup-id gnome-system-monitor
 exec --no-startup-id nautilus
 exec --no-startup-id firefox
 exec --no-startup-id obsidian
+exec --no-startup-id todoist
 # exec --no-startup-id code ./Documents/dotfiles # only for testing and debugging
 
 # Configure redshift
