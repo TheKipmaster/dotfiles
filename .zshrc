@@ -128,3 +128,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # fzf Fuzzy Find
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/home/felipe/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="/home/felipe/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
