@@ -1,4 +1,26 @@
 
+sudo apt install -y curl
+sudo apt install -y npm
+
+## zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+sudo apt install -y pavucontrol
+
+## i3 stuff
+sudo apt install -y i3
+sudo apt install -y libxcursor-dev # polybar dependency
+sudo apt install -y polybar
+sudo apt install -y nitrogen
+sudo apt install -y picom
+sudo apt install -y rofi
+
+# snaps
+sudo snap install code --classic
+sudo snap install obsidian --classic
+sudo snap install todoist
+sudo snap install spotify
+
 ################################################################################
 ############ Kitty #############################################################
 ################################################################################
@@ -26,6 +48,7 @@ curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x8
 sudo rm -rf /opt/nvim-linux-x86_64
 sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
 
+# sudo chown -R $(whoami) /usr/local/bin # for in case permissions are an issue
 npm install -g neovim
 
 ################################################################################
@@ -37,26 +60,26 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 # ImageMagick
-sudo apt install imagemagick
+sudo apt install -y imagemagick
 
 # Ripgrep
-sudo apt install ripgrep
+sudo apt install -y ripgrep
 
 # fd-find
-sudo apt install fd-find
+sudo apt install -y fd-find
 ln -s $(which fdfind) ~/.local/bin/fd
 
 # Lua
-sudo apt install lua5.1
+sudo apt install -y lua5.1
 
 # luarocks
-sudo apt install liblua5.1-0-dev
+sudo apt install -y liblua5.1-0-dev
 
 # tree-sitter
-npm install --global tree-sitter-cli
+npm install -g -y tree-sitter-cli
 
 # ast-grep
-npm install --global @ast-grep/cli
+npm install -g -y @ast-grep/cli
 
 ################################################################################
 ############ Lazygit ###########################################################
@@ -76,11 +99,10 @@ sudo install lazygit -D -t /usr/local/bin/
 # Create i3, nvim, kitty config dirs if they don't exist already
 mkdir -p $HOME/.config/i3
 mkdir -p $HOME/.config/kitty
-mkdir -p $HOME/.config/nvim
 
 ln -sf $HOME/Documents/dotfiles/i3/config $HOME/.config/i3
 ln -sf $HOME/Documents/dotfiles/kitty.conf $HOME/.config/kitty
-ln -sf $HOME/Documents/dotfiles/nvim $HOME/.config/nvim
+ln -sf $HOME/Documents/dotfiles/nvim $HOME/.config
 
 # ln -sf $HOME/Documents/dotfiles/.profile $HOME
 
@@ -99,3 +121,14 @@ ln -sf $HOME/Documents/dotfiles/picom $HOME/.config
 ln -sf $HOME/Documents/dotfiles/.zshrc $HOME
 
 ln -sf $HOME/Documents/dotfiles/.bashrc $HOME
+
+sudo chmod +x ~/.config/dunst/dunstrc
+
+sudo chmod +x ~/.config/picom/start_picom.sh
+
+sudo chmod +x ~/.config/polybar/launch.sh
+sudo chmod +x ~/.config/polybar/scripts/weather/weather.sh
+sudo find ~/.config/polybar/scripts -type f -exec chmod +x {} \;
+
+sudo chmod +x ~/.config/rofi/scripts/askpass-rofi.sh
+sudo chmod +x ~/.config/rofi/scripts/power_menu.sh
