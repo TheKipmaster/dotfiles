@@ -1,9 +1,10 @@
-
 sudo apt install -y curl
 sudo apt install -y npm
 
-## zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+## fish
+sudo add-apt-repository ppa:fish-shell/release-4
+sudo apt update
+sudo apt install fish
 
 sudo apt install -y pavucontrol
 
@@ -38,7 +39,7 @@ cp ~/.local/kitty.app/share/applications/kitty-open.desktop ~/.local/share/appli
 sed -i "s|Icon=kitty|Icon=$(readlink -f ~)/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png|g" ~/.local/share/applications/kitty*.desktop
 sed -i "s|Exec=kitty|Exec=$(readlink -f ~)/.local/kitty.app/bin/kitty|g" ~/.local/share/applications/kitty*.desktop
 # Make xdg-terminal-exec (and hence desktop environments that support it use kitty)
-echo 'kitty.desktop' > ~/.config/xdg-terminals.list
+echo 'kitty.desktop' >~/.config/xdg-terminals.list
 
 ################################################################################
 ############ NeoVim ############################################################
@@ -67,7 +68,7 @@ sudo apt install -y ripgrep
 
 # fd-find
 sudo apt install -y fd-find
-ln -s $(which fdfind) ~/.local/bin/fd
+ln -s "$(which fdfind)" ~/.local/bin/fd
 
 # Lua
 sudo apt install -y lua5.1
@@ -97,30 +98,30 @@ sudo install lazygit -D -t /usr/local/bin/
 # [ -d $HOME/.bin ] || ln -s $HOME/Documents/dotfiles/.bin $HOME/
 
 # Create i3, nvim, kitty config dirs if they don't exist already
-mkdir -p $HOME/.config/i3
-mkdir -p $HOME/.config/kitty
+mkdir -p "$HOME/.config/i3"
+mkdir -p "$HOME/.config/kitty"
 
-ln -sf $HOME/Documents/dotfiles/i3/config $HOME/.config/i3
-ln -sf $HOME/Documents/dotfiles/kitty.conf $HOME/.config/kitty
-ln -sf $HOME/Documents/dotfiles/nvim $HOME/.config
+ln -sf "$HOME/Documents/dotfiles/i3/config" "$HOME/.config/i3"
+ln -sf "$HOME/Documents/dotfiles/kitty.conf" "$HOME/.config/kitty"
+ln -sf "$HOME/Documents/dotfiles/nvim" "$HOME/.config"
 
-# ln -sf $HOME/Documents/dotfiles/.profile $HOME
+# ln -sf "$HOME/Documents/dotfiles/.profile" "$HOME"
 
-ln -sf $HOME/Documents/dotfiles/.fonts $HOME
+ln -sf "$HOME/Documents/dotfiles/.fonts" "$HOME"
 
-ln -sf $HOME/Documents/dotfiles/dunst $HOME/.config
+ln -sf "$HOME/Documents/dotfiles/dunst" "$HOME/.config"
 
-ln -sf $HOME/Documents/dotfiles/polybar $HOME/.config
+ln -sf "$HOME/Documents/dotfiles/polybar" "$HOME/.config"
 
-ln -sf $HOME/Documents/dotfiles/rofi $HOME/.config
+ln -sf "$HOME/Documents/dotfiles/rofi" "$HOME/.config"
 
-ln -sf $HOME/Documents/dotfiles/nitrogen $HOME/.config
+ln -sf "$HOME/Documents/dotfiles/nitrogen" "$HOME/.config"
 
-ln -sf $HOME/Documents/dotfiles/picom $HOME/.config
+ln -sf "$HOME/Documents/dotfiles/picom" "$HOME/.config"
 
-ln -sf $HOME/Documents/dotfiles/.zshrc $HOME
+ln -sf "$HOME/Documents/dotfiles/.zshrc" "$HOME"
 
-ln -sf $HOME/Documents/dotfiles/.bashrc $HOME
+ln -sf "$HOME/Documents/dotfiles/.bashrc" "$HOME"
 
 sudo chmod +x ~/.config/dunst/dunstrc
 
