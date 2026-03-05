@@ -123,6 +123,8 @@ ln -sf "$HOME/Documents/dotfiles/.zshrc" "$HOME"
 
 ln -sf "$HOME/Documents/dotfiles/.bashrc" "$HOME"
 
+ln -sf "$HOME/Documents/dotfiles/config.fish" "$HOME/.config/fish"
+
 sudo chmod +x ~/.config/dunst/dunstrc
 
 sudo chmod +x ~/.config/picom/start_picom.sh
