@@ -20,7 +20,8 @@ sudo apt install -y rofi
 sudo snap install code --classic
 sudo snap install obsidian --classic
 sudo snap install todoist
-sudo snap install spotify
+sudo snap install ncspot
+sudo snap install --edge starship
 
 ################################################################################
 ############ Kitty #############################################################
