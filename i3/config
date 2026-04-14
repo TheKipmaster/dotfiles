@@ -41,7 +41,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec --no-startup-id kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -212,8 +212,8 @@ assign [class="gnome-system-monitor"] 9
 ################################################################################
 
 # Setup monitors
-exec_always --no-startup-id xrandr --output DP-1-4 --auto --left-of eDP-1
-exec_always --no-startup-id xrandr --output HDMI-1-3 --auto --right-of eDP-1
+exec_always --no-startup-id xrandr --output DP-1-1 --auto --left-of eDP-1
+exec_always --no-startup-id xrandr --output HDMI-1-1 --auto --right-of eDP-1
 
 # Start dunst notification daemon
 exec_always --no-startup-id dunst --config ~/.config/dunst/dunstrc
@@ -228,13 +228,19 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 # Set volume to 50%
 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 50%
 
+# Set keyboard layout to us intl
+exec_always --no-startup-id "setxkbmap us intl"
+
+# Enable touchpad tapping
+exec_always xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
+
 # Open default windows
 exec --no-startup-id kitty
 exec --no-startup-id gnome-system-monitor
 exec --no-startup-id nautilus
 exec --no-startup-id firefox
-exec --no-startup-id obsidian
-exec --no-startup-id todoist
+# exec --no-startup-id obsidian
+# exec --no-startup-id todoist
 # exec --no-startup-id code ./Documents/dotfiles # only for testing and debugging
 
 # Configure redshift
