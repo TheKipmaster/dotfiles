@@ -41,7 +41,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id kitty
+bindsym $mod+Return exec --no-startup-id /home/felipe/.local/kitty.app/bin/kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -219,7 +219,7 @@ exec_always --no-startup-id setxkbmap us intl
 exec_always --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
 
 # Open default windows
-exec --no-startup-id kitty
+exec --no-startup-id /home/felipe/.local/kitty.app/bin/kitty
 exec --no-startup-id gnome-system-monitor
 exec --no-startup-id nautilus
 exec --no-startup-id firefox
