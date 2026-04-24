@@ -141,6 +141,8 @@ ln -sf "$HOME/Documents/dotfiles/picom" "$HOME/.config"
 
 ln -sf "$HOME/Documents/dotfiles/.zshrc" "$HOME"
 
+ln -sf "$HOME/Documents/dotfiles/.XCompose" "$HOME"
+
 ln -sf "$HOME/Documents/dotfiles/.bashrc" "$HOME"
 
 ln -sf "$HOME/Documents/dotfiles/config.fish" "$HOME/.config/fish"
