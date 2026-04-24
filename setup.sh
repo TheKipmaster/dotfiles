@@ -5,8 +5,21 @@ sudo apt install -y npm
 sudo add-apt-repository ppa:fish-shell/release-4
 sudo apt update
 sudo apt install fish
+#fisher
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+fisher install patrickf1/fzf.fish
+fisher install ilancosman/tide@v6
+fisher install jorgebucaran/nvm.fish
+tide configure --auto --style=Rainbow --prompt_colors='16 colors' --show_time='24-hour format' --rainbow_prompt_separators=Angled --powerline_prompt_heads=Sharp --powerline_prompt_tails=Flat --powerline_prompt_style='Two lines, character and frame' --prompt_connection=Solid --powerline_right_prompt_frame=No --prompt_spacing=Compact --icons='Many icons' --transient=Yes
 
+## Utils
+sudo apt install -y fd-find
+sudo apt install batcat
 sudo apt install -y pavucontrol
+
+## NVM
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+fisher install jorgebucaran/nvm.fish
 
 ## i3 stuff
 sudo apt install -y i3
@@ -20,8 +33,13 @@ sudo apt install -y rofi
 sudo snap install code --classic
 sudo snap install obsidian --classic
 sudo snap install todoist
+sudo snap install discord
+sudo snap install steam
 sudo snap install ncspot
 sudo snap install --edge starship
+
+# drivers
+sudo ubuntu-drivers autoinstall
 
 ################################################################################
 ############ Kitty #############################################################
@@ -103,6 +121,7 @@ mkdir -p "$HOME/.config/i3"
 mkdir -p "$HOME/.config/kitty"
 
 ln -sf "$HOME/Documents/dotfiles/i3/config" "$HOME/.config/i3"
+ln -sf "$HOME/Documents/dotfiles/i3/scripts" "$HOME/.config/i3"
 ln -sf "$HOME/Documents/dotfiles/kitty.conf" "$HOME/.config/kitty"
 ln -sf "$HOME/Documents/dotfiles/nvim" "$HOME/.config"
 
@@ -126,10 +145,15 @@ ln -sf "$HOME/Documents/dotfiles/.bashrc" "$HOME"
 
 ln -sf "$HOME/Documents/dotfiles/config.fish" "$HOME/.config/fish"
 
+ln -s "$(which fdfind)" ~/.local/bin/fd
+
+ln -s "$(which batcat)" ~/.local/bin/bat
+
 sudo chmod +x ~/.config/dunst/dunstrc
 
 sudo chmod +x ~/.config/picom/start_picom.sh
 
+sudo chmod +x ~/.config/i3/scripts/*.sh
 sudo chmod +x ~/.config/polybar/launch.sh
 sudo chmod +x ~/.config/polybar/scripts/weather/weather.sh
 sudo find ~/.config/polybar/scripts -type f -exec chmod +x {} \;
