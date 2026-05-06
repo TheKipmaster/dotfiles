@@ -3,12 +3,12 @@ FROM ubuntu:24.04
 RUN sed -i 's|http://archive.ubuntu.com|http://br.archive.ubuntu.com|g' /etc/apt/sources.list.d/ubuntu.sources
 
 RUN apt update && apt install -y \
-    git curl zip unzip
+    git curl zip unzip bubblewrap socat
 
 RUN curl -fsSL https://deb.nodesource.com/setup_24.x | bash - \
     && apt install -y nodejs && apt clean
 
-RUN npm install -g @anthropic-ai/claude-code
+RUN npm install -g @anthropic-ai/claude-code @anthropic-ai/sandbox-runtime
 
 RUN userdel -r $(getent passwd 1000 | cut -d: -f1) 2>/dev/null; true
 
