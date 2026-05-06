@@ -145,7 +145,11 @@ ln -sf "$HOME/Documents/dotfiles/.XCompose" "$HOME"
 
 ln -sf "$HOME/Documents/dotfiles/.bashrc" "$HOME"
 
-ln -sf "$HOME/Documents/dotfiles/config.fish" "$HOME/.config/fish"
+ln -sf "$HOME/Documents/dotfiles/fish/config.fish" "$HOME/.config/fish"
+
+ln -sf "$HOME/Documents/dotfiles/fish/functions/claudio.fish" "$HOME/.config/fish/functions"
+
+ln -sf "$HOME/Documents/dotfiles/fish/functions/patt.fish" "$HOME/.config/fish/functions"
 
 ln -s "$(which fdfind)" ~/.local/bin/fd
 

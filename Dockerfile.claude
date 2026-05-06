@@ -1,0 +1,19 @@
+FROM ubuntu:24.04
+
+RUN sed -i 's|http://archive.ubuntu.com|http://br.archive.ubuntu.com|g' /etc/apt/sources.list.d/ubuntu.sources
+
+RUN apt update && apt install -y \
+    git curl zip unzip
+
+RUN curl -fsSL https://deb.nodesource.com/setup_24.x | bash - \
+    && apt install -y nodejs && apt clean
+
+RUN npm install -g @anthropic-ai/claude-code
+
+RUN userdel -r $(getent passwd 1000 | cut -d: -f1) 2>/dev/null; true
+
+RUN useradd -m -s /bin/bash -u 1000 claudio
+
+USER 1000:1000
+
+WORKDIR /workspace
