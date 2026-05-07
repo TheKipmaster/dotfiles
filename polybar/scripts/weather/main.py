@@ -41,6 +41,9 @@ def get_weather(city: str, lang: str, unit: str, api_key: str):
             timeout=10,
         )
         data = r.json()
+        if "main" not in data:
+            print(f"E: API error: {data.get('message', 'unknown')}")
+            return None
         temp = data["main"]["temp"]
         desc = data["weather"][0]["description"]
         unit = unit_suffix(unit)
