@@ -1,16 +1,21 @@
-#!/bin/sh
+#!/bin/bash
 
-BLUE="%{u#44D1EF}"
+BLUE="%{F#44D1EF}"
 GRAY="%{F#757575}"
+RESET="%{F-}"
 
-INACTIVE_ICON=""
-ACTIVE_ICON=""
+BT_ON="󰂯"
+BT_OFF="󰂲"
 
-# Bluetooth turned off
-[ $(bluetoothctl show | grep "Powered: yes" | wc -c) -eq 0 ] && echo "$GRAY$INACTIVE_ICON"
+if ! bluetoothctl show | grep -q "Powered: yes"; then
+    echo "${GRAY}${BT_OFF}${RESET}"
+    exit 0
+fi
 
-# No bluetooth devices connected
-[ $(echo info | bluetoothctl | grep 'Device' | wc -c) -eq 0 ] && echo "$GRAY$INACTIVE_ICON"
+connected=$(bluetoothctl devices Connected 2>/dev/null | grep -c "^Device" || true)
 
-#DEVICES=$(bluetoothctl paired-devices | awk 'NF{print $NF; exit}')
-echo "$ACTIVE_ICON"
+if [ "$connected" -gt 0 ]; then
+    echo "${BLUE}${BT_ON} (${connected})${RESET}"
+else
+    echo "${BLUE}${BT_ON}${RESET}"
+fi
