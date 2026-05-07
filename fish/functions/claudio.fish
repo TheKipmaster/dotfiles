@@ -23,19 +23,19 @@ function claudio
         return 1
     end
 
-    mkdir -p "$HOME/.claudio/state/claude/"
-    touch "$HOME/.claudio/state/claude.json"
+    mkdir -p "$HOME/.claudio/.claude/"
+    touch "$HOME/.claudio/.claude.json"
 
     set DIR_PATH (pwd)
     set HOOKS_PATH $DIR_PATH/.git/hooks
-    set CLAUDE_STATE $HOME/.claudio/state
+    set CLAUDE_STATE $HOME/.claudio/
 
     docker run --rm -it \
         --user 1000:1000 \
         -v "$WORK_DIR/:/workspace" \
         -v "$GIT_WRITE_PATH" \
         -v "$HOOKS_PATH:/workspace/.git/hooks:ro" \
-        -v "$CLAUDE_STATE/claude:/home/claudio/.claude" \
-        -v "$CLAUDE_STATE/claude.json:/home/claudio/.claude.json" \
+        -v "$CLAUDE_STATE/.claude:/home/claudio/.claude" \
+        -v "$CLAUDE_STATE/.claude.json:/home/claudio/.claude.json" \
         claudio claude
 end
