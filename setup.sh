@@ -119,6 +119,7 @@ sudo install lazygit -D -t /usr/local/bin/
 # Create i3, nvim, kitty config dirs if they don't exist already
 mkdir -p "$HOME/.config/i3"
 mkdir -p "$HOME/.config/kitty"
+mkdir -p "$HOME/.claudio"
 
 ln -sf "$HOME/Documents/dotfiles/i3/config" "$HOME/.config/i3"
 ln -sf "$HOME/Documents/dotfiles/i3/scripts" "$HOME/.config/i3"
@@ -154,6 +155,12 @@ ln -sf "$HOME/Documents/dotfiles/fish/functions/patt.fish" "$HOME/.config/fish/f
 ln -s "$(which fdfind)" ~/.local/bin/fd
 
 ln -s "$(which batcat)" ~/.local/bin/bat
+
+ln -sf "$HOME/Documents/dotfiles/claudio/CLAUDE.md" "$HOME/.claudio/.claude/CLAUDE.md"
+
+ln -sf "$HOME/Documents/dotfiles/claudio/settings.json" "$HOME/.claudio/.claude/settings.json"
+
+ln -sf "$HOME/Documents/dotfiles/claudio/statusline-command.sh" "$HOME/.claudio/.claude/statusline-command.sh"
 
 sudo chmod +x ~/.config/dunst/dunstrc
 

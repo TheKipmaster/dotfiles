@@ -1,0 +1,10 @@
+{
+  "sandbox": {
+    "enabled": true
+  },
+  "theme": "dark",
+  "statusLine": {
+    "type": "command",
+    "command": "bash /home/claudio/.claude/statusline-command.sh"
+  }
+}

@@ -15,6 +15,7 @@ Personal Linux desktop dotfiles for an i3-based setup. Configs are managed as sy
 | `rofi/` | App launcher and power-menu scripts |
 | `dunst/` | Notification daemon |
 | `nitrogen/` | Wallpaper manager |
+| `claudio/` | Claude Code global config — `CLAUDE.md`, `settings.json`, `statusline-command.sh` |
 | `Dockerfile.claude` | Docker image used by the `claudio` Fish function |
 | `setup.sh` | Full install + symlink script (clone to `~/Documents/dotfiles/`) |
 
