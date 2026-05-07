@@ -7,7 +7,7 @@ Running inside the `claudio` Docker container. Host is Linux with i3, Fish shell
 | Host path | Container path | Access |
 |---|---|---|
 | `./src` (or `--dir` override) | `/workspace` | read/write |
-| `./.git/` | `/workspace/.git` | read-only (writable with `-w`) |
+| `./.git/` | `/workspace/.git` | read-only (writable with `-w`); check `$CLAUDIO_GIT_WRITE` |
 | `./.git/hooks/` | `/workspace/.git/hooks` | always read-only, cannot be changed |
 | `~/.claudio/.claude/` | `/home/claudio/.claude` | read/write |
 | `~/.claudio/.claude.json` | `/home/claudio/.claude.json` | read/write |

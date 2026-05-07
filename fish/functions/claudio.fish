@@ -3,8 +3,10 @@ function claudio
 
     if set -ql _flag_gitwrite
         set GIT_WRITE_PATH (pwd)/.git/:/workspace/.git
+        set GIT_WRITE_ENV "-e CLAUDIO_GIT_WRITE=1"
     else
         set GIT_WRITE_PATH (pwd)/.git/:/workspace/.git:ro
+        set GIT_WRITE_ENV ""
     end
 
     if set -ql _flag_dir
@@ -37,5 +39,6 @@ function claudio
         -v "$HOOKS_PATH:/workspace/.git/hooks:ro" \
         -v "$CLAUDE_STATE/.claude:/home/claudio/.claude" \
         -v "$CLAUDE_STATE/.claude.json:/home/claudio/.claude.json" \
+        $GIT_WRITE_ENV \
         claudio claude
 end
