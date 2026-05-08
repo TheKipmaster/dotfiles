@@ -152,6 +152,8 @@ ln -sf "$HOME/Documents/dotfiles/fish/functions/claudio.fish" "$HOME/.config/fis
 
 ln -sf "$HOME/Documents/dotfiles/fish/functions/patt.fish" "$HOME/.config/fish/functions"
 
+ln -sf "$HOME/Documents/dotfiles/fish/functions/onip.fish" "$HOME/.config/fish/functions"
+
 ln -s "$(which fdfind)" ~/.local/bin/fd
 
 ln -s "$(which batcat)" ~/.local/bin/bat
