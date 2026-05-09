@@ -116,7 +116,7 @@ CONFIG="$HOME/.config"
 # [ -d $HOME/.bin ] || ln -s $DOTFILES/.bin $HOME/
 
 # Create i3, nvim, kitty config dirs if they don't exist already
-mkdir -p "$CONFIG/i3" "$CONFIG/kitty" "$HOME/.claudio"
+mkdir -p "$CONFIG/i3" "$CONFIG/kitty"
 
 tools=(
     "$DOTFILES/nvim"
@@ -145,7 +145,7 @@ home_dotfiles=(
 ln -sf "${home_dotfiles[@]}" "$HOME"
 
 claudio_files=("$DOTFILES/claudio"/*)
-ln -sf "${claudio_files[@]}" "$HOME/.claudio/.claude"
+ln -sf "${claudio_files[@]}" "$HOME/.claude"
 
 sudo chmod +x "$CONFIG/dunst/dunstrc"
 
