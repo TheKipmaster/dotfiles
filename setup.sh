@@ -1,54 +1,59 @@
-sudo apt install -y curl
-sudo apt install -y npm
-
-## fish
+#########################################################################################
+############ Core #######################################################################
+#########################################################################################
 sudo add-apt-repository ppa:fish-shell/release-4
 sudo apt update
-sudo apt install fish
-#fisher
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+
+sudo apt install -y curl npm fish
+
+############ Fisher #####################################################################
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish \
+    | source && fisher install jorgebucaran/fisher
 fisher install patrickf1/fzf.fish
-fisher install ilancosman/tide@v6
-fisher install jorgebucaran/nvm.fish
-tide configure --auto --style=Rainbow --prompt_colors='16 colors' --show_time='24-hour format' --rainbow_prompt_separators=Angled --powerline_prompt_heads=Sharp --powerline_prompt_tails=Flat --powerline_prompt_style='Two lines, character and frame' --prompt_connection=Solid --powerline_right_prompt_frame=No --prompt_spacing=Compact --icons='Many icons' --transient=Yes
-
-## Utils
-sudo apt install -y fd-find
-sudo apt install batcat
-sudo apt install -y pavucontrol
-
-## NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 fisher install jorgebucaran/nvm.fish
+fisher install ilancosman/tide@v6
 
-## i3 stuff
-sudo apt install -y i3
-sudo apt install -y libxcursor-dev # polybar dependency
-sudo apt install -y polybar
-sudo apt install -y nitrogen
-sudo apt install -y picom
-sudo apt install -y rofi
+############ Tide Config ################################################################
+tide configure --auto --style=Rainbow --prompt_colors='16 colors' \
+    --show_time='24-hour format' --rainbow_prompt_separators=Angled \
+    --powerline_prompt_heads=Sharp --powerline_prompt_tails=Flat \
+    --powerline_prompt_style='Two lines, character and frame' \
+    --prompt_connection=Solid --powerline_right_prompt_frame=No \
+    --prompt_spacing=Compact --icons='Many icons' --transient=Yes
 
-# snaps
-sudo snap install code --classic
-sudo snap install obsidian --classic
-sudo snap install todoist
-sudo snap install discord
-sudo snap install steam
-sudo snap install ncspot
-sudo snap install --edge starship
+############ Utils ######################################################################
+sudo apt install -y fd-find batcat pavucontrol
+ln -s "$(which batcat)" ~/.local/bin/bat
 
-# drivers
+############ i3 #########################################################################
+sudo apt install -y i3 \
+    libxcursor-dev polybar \
+    nitrogen picom rofi
+
+############ Snap #######################################################################
+snaps=(
+    "code --classic"
+    "obsidian --classic"
+    "todoist"
+    "discord"
+    "steam"
+    "ncspot"
+)
+for snap in "${snaps[@]}"; do                                                                
+    sudo snap install $snap                                                                
+done
+
+############ Drivers ####################################################################
 sudo ubuntu-drivers autoinstall
 
-################################################################################
-############ Kitty #############################################################
-################################################################################
+#########################################################################################
+############ Kitty ######################################################################
+#########################################################################################
 
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
-# Create symbolic links to add kitty and kitten to PATH (assuming ~/.local/bin is in
-# your system-wide PATH)
+# Create symbolic links to add kitty and kitten to PATH
 ln -sf ~/.local/kitty.app/bin/kitty ~/.local/kitty.app/bin/kitten ~/.local/bin/
 # Place the kitty.desktop file somewhere it can be found by the OS
 cp ~/.local/kitty.app/share/applications/kitty.desktop ~/.local/share/applications/
@@ -60,9 +65,9 @@ sed -i "s|Exec=kitty|Exec=$(readlink -f ~)/.local/kitty.app/bin/kitty|g" ~/.loca
 # Make xdg-terminal-exec (and hence desktop environments that support it use kitty)
 echo 'kitty.desktop' >~/.config/xdg-terminals.list
 
-################################################################################
-############ NeoVim ############################################################
-################################################################################
+#########################################################################################
+############ NeoVim #####################################################################
+#########################################################################################
 
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
 sudo rm -rf /opt/nvim-linux-x86_64
@@ -71,107 +76,86 @@ sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
 # sudo chown -R $(whoami) /usr/local/bin # for in case permissions are an issue
 npm install -g neovim
 
-################################################################################
-############ LazyVim Utils #####################################################
-################################################################################
+#########################################################################################
+############ LazyVim Utils ##############################################################
+#########################################################################################
 
 # FZF
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
-# ImageMagick
-sudo apt install -y imagemagick
+lazyvim_utils=(
+    imagemagick
+    ripgrep
+    fd-find
+    lua5.1
+    liblua5.1-0-dev
+)
+sudo apt install -y "${lazyvim_utils[@]}"
 
-# Ripgrep
-sudo apt install -y ripgrep
-
-# fd-find
-sudo apt install -y fd-find
 ln -s "$(which fdfind)" ~/.local/bin/fd
 
-# Lua
-sudo apt install -y lua5.1
+npm install -g -y tree-sitter-cli @ast-grep/cli
 
-# luarocks
-sudo apt install -y liblua5.1-0-dev
-
-# tree-sitter
-npm install -g -y tree-sitter-cli
-
-# ast-grep
-npm install -g -y @ast-grep/cli
-
-################################################################################
-############ Lazygit ###########################################################
-################################################################################
+#########################################################################################
+############ Lazygit ####################################################################
+#########################################################################################
 
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 tar xf lazygit.tar.gz lazygit
 sudo install lazygit -D -t /usr/local/bin/
 
-################################################################################
-############ Symlinks ##########################################################
-################################################################################
+#########################################################################################
+############ Symlinks ###################################################################
+#########################################################################################
 
-# [ -d $HOME/.bin ] || ln -s $HOME/Documents/dotfiles/.bin $HOME/
+DOTFILES="$HOME/Documents/dotfiles"
+CONFIG="$HOME/.config"
+
+# [ -d $HOME/.bin ] || ln -s $DOTFILES/.bin $HOME/
 
 # Create i3, nvim, kitty config dirs if they don't exist already
-mkdir -p "$HOME/.config/i3"
-mkdir -p "$HOME/.config/kitty"
-mkdir -p "$HOME/.claudio"
+mkdir -p "$CONFIG/i3" "$CONFIG/kitty" "$HOME/.claudio"
 
-ln -sf "$HOME/Documents/dotfiles/i3/config" "$HOME/.config/i3"
-ln -sf "$HOME/Documents/dotfiles/i3/scripts" "$HOME/.config/i3"
-ln -sf "$HOME/Documents/dotfiles/kitty.conf" "$HOME/.config/kitty"
-ln -sf "$HOME/Documents/dotfiles/nvim" "$HOME/.config"
+tools=(
+    "$DOTFILES/nvim"
+    "$DOTFILES/dunst"
+    "$DOTFILES/polybar"
+    "$DOTFILES/rofi"
+    "$DOTFILES/nitrogen"
+    "$DOTFILES/picom"
+)
+ln -sf "${tools[@]}" "$CONFIG"
 
-# ln -sf "$HOME/Documents/dotfiles/.profile" "$HOME"
+fish_functions=("$DOTFILES/fish/functions"/*)
 
-ln -sf "$HOME/Documents/dotfiles/.fonts" "$HOME"
+ln -sf "${fish_functions[@]}" "$CONFIG/fish/functions"
 
-ln -sf "$HOME/Documents/dotfiles/dunst" "$HOME/.config"
+ln -sf "$DOTFILES/i3/config" "$DOTFILES/i3/scripts" "$CONFIG/i3"
+ln -sf "$DOTFILES/kitty.conf" "$CONFIG/kitty"
+ln -sf "$DOTFILES/fish/config.fish" "$CONFIG/fish"
 
-ln -sf "$HOME/Documents/dotfiles/polybar" "$HOME/.config"
+home_dotfiles=(
+    "$DOTFILES/.fonts"
+    "$DOTFILES/.zshrc"
+    "$DOTFILES/.XCompose"
+    "$DOTFILES/.bashrc"
+)
+ln -sf "${home_dotfiles[@]}" "$HOME"
 
-ln -sf "$HOME/Documents/dotfiles/rofi" "$HOME/.config"
+claudio_files=("$DOTFILES/claudio"/*)
+ln -sf "${claudio_files[@]}" "$HOME/.claudio/.claude"
 
-ln -sf "$HOME/Documents/dotfiles/nitrogen" "$HOME/.config"
+sudo chmod +x "$CONFIG/dunst/dunstrc"
 
-ln -sf "$HOME/Documents/dotfiles/picom" "$HOME/.config"
+sudo chmod +x "$CONFIG/picom/start_picom.sh"
 
-ln -sf "$HOME/Documents/dotfiles/.zshrc" "$HOME"
+sudo chmod +x "$CONFIG/i3/scripts/"*.sh
 
-ln -sf "$HOME/Documents/dotfiles/.XCompose" "$HOME"
+sudo chmod +x "$CONFIG/polybar/launch.sh"
+sudo chmod +x "$CONFIG/polybar/scripts/weather/weather.sh"
+sudo find "$CONFIG/polybar/scripts" -type f -exec chmod +x {} \;
 
-ln -sf "$HOME/Documents/dotfiles/.bashrc" "$HOME"
-
-ln -sf "$HOME/Documents/dotfiles/fish/config.fish" "$HOME/.config/fish"
-
-ln -sf "$HOME/Documents/dotfiles/fish/functions/claudio.fish" "$HOME/.config/fish/functions"
-
-ln -sf "$HOME/Documents/dotfiles/fish/functions/patt.fish" "$HOME/.config/fish/functions"
-
-ln -sf "$HOME/Documents/dotfiles/fish/functions/onip.fish" "$HOME/.config/fish/functions"
-
-ln -s "$(which fdfind)" ~/.local/bin/fd
-
-ln -s "$(which batcat)" ~/.local/bin/bat
-
-ln -sf "$HOME/Documents/dotfiles/claudio/CLAUDE.md" "$HOME/.claudio/.claude/CLAUDE.md"
-
-ln -sf "$HOME/Documents/dotfiles/claudio/settings.json" "$HOME/.claudio/.claude/settings.json"
-
-ln -sf "$HOME/Documents/dotfiles/claudio/statusline-command.sh" "$HOME/.claudio/.claude/statusline-command.sh"
-
-sudo chmod +x ~/.config/dunst/dunstrc
-
-sudo chmod +x ~/.config/picom/start_picom.sh
-
-sudo chmod +x ~/.config/i3/scripts/*.sh
-sudo chmod +x ~/.config/polybar/launch.sh
-sudo chmod +x ~/.config/polybar/scripts/weather/weather.sh
-sudo find ~/.config/polybar/scripts -type f -exec chmod +x {} \;
-
-sudo chmod +x ~/.config/rofi/scripts/askpass-rofi.sh
-sudo chmod +x ~/.config/rofi/scripts/power_menu.sh
+sudo chmod +x "$CONFIG/rofi/scripts/askpass-rofi.sh"
+sudo chmod +x "$CONFIG/rofi/scripts/power_menu.sh"
