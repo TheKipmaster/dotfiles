@@ -1,10 +1,54 @@
 {
-  "sandbox": {
-    "enabled": true
-  },
   "theme": "dark",
   "statusLine": {
     "type": "command",
-    "command": "bash /home/claudio/.claude/statusline-command.sh"
+    "command": "bash /home/felipe/.claude/statusline-command.sh"
+  },
+  "sandbox": {
+    "enabled": true,
+    "allowUnsandboxedCommands": false,
+    "enableWeakerNestedSandbox": false,
+    "autoAllowBashIfSandboxed": true,
+    "filesystem": {
+      "allowWrite": [
+        "~/Zettelkasten/Learning/**",
+        "/tmp/claude-1000/"
+      ],
+      "allowRead": [
+        "~/.claude/**",
+        "~/Zettelkasten/**",
+        "/tmp/claude-1000"
+      ],
+      "denyWrite": [
+        "~/.claude/"
+      ],
+      "denyRead": [
+        "~/.*",
+        "~/Documents/*",
+        "~/.claude/.credentials.json"
+      ]
+    }
+  },
+  "permissions": {
+    "defaultMode": "plan",
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)"
+    ],
+    "allow": [
+      "Bash(ls *)",
+      "Bash(find *)",
+      "Bash(grep *)",
+      "Bash(sort *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(cat *)",
+      "Bash(wc *)",
+      "Read(~/Zettelkasten/**)",
+      "Read(/tmp/claude-1000/*)"
+    ],
+    "ask": [
+      "Bash(rm *)"
+    ]
   }
 }
