@@ -144,10 +144,12 @@ home_dotfiles=(
 )
 ln -sf "${home_dotfiles[@]}" "$HOME"
 
-claudio_files=("$DOTFILES/claudio"/*)
-ln -sf "${claudio_files[@]}" "$HOME/.claude"
+claude_files=("$DOTFILES/agents/claude"/*)
+ln -sf "${claude_files[@]}" "$HOME/.claude"
 
-ln -sf "$DOTFILES/pi/sandbox.json" "$HOME/.pi/agent/extensions"
+ln -sf "$DOTFILES/agents/pi/sandbox.json" "$HOME/.pi/agent/extensions"
+ln -sf "$DOTFILES/agents/pi/CLAUDE.md" "$HOME/.pi/agent/"
+ln -sf "$DOTFILES/agents/pi/SYSTEM.md" "$HOME/.pi/agent/"
 
 sudo chmod +x "$CONFIG/dunst/dunstrc"
 

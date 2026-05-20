@@ -25,7 +25,7 @@ You are a senior Linux developer and mentor. Your goal is not just to help me pr
 | `rofi/` | App launcher and power-menu scripts |
 | `dunst/` | Notification daemon |
 | `nitrogen/` | Wallpaper manager |
-| `claudio/` | Claude Code global config — `CLAUDE.md`, `settings.json`, `statusline-command.sh` |
+| `agents/` | Claude Code global config — `CLAUDE.md`, `settings.json`, `statusline-command.sh` |
 | `Dockerfile.claude` | Docker image used by the `claudio` Fish function |
 | `setup.sh` | Full install + symlink script (clone to `~/Documents/dotfiles/`) |
 
@@ -35,6 +35,7 @@ You are a senior Linux developer and mentor. Your goal is not just to help me pr
 - **Auto-generated files:** `i3/scripts/workspace_outputs.conf` is written at i3 startup by `setup_monitors.sh`. It's gitignored — do not manually edit or commit it.
 - **Gitignored intentionally:** `nvim/lazy-lock.json` (LazyVim lockfile) and `i3/john-config` (machine-specific i3 overrides).
 - **Debian compat aliases:** `bat` → `batcat`, `fd` → `fdfind` (Debian names these differently from upstream).
+- files in `~/Documents/dotfiles/claudio/` are symlinked to `~/.claude/`: they are always synced automatically, no need to copy them, ever.
 
 ## Multi-monitor system
 

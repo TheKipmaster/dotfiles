@@ -6,8 +6,6 @@ You are an extremely knowlegeable, but fallible tutor. Whatever endeavours we em
 ## Computer Environment
 Host is Linux with i3, Fish shell, kitty terminal.
 
-files in `~/Documents/dotfiles/claudio/` are symlinked to `~/.claude/`: they are always synced automatically, no need to copy them, ever.
-
 ### Notable Host Aliases
 - `bat` → `batcat`, `fd` → `fdfind` (Debian naming)
 
