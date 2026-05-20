@@ -147,6 +147,8 @@ ln -sf "${home_dotfiles[@]}" "$HOME"
 claudio_files=("$DOTFILES/claudio"/*)
 ln -sf "${claudio_files[@]}" "$HOME/.claude"
 
+ln -sf "$DOTFILES/pi/sandbox.json" "$HOME/.pi/agent/extensions"
+
 sudo chmod +x "$CONFIG/dunst/dunstrc"
 
 sudo chmod +x "$CONFIG/picom/start_picom.sh"
