@@ -1,5 +1,6 @@
 {
   "theme": "dark",
+  "cleanupPeriodDays": 3650,
   "statusLine": {
     "type": "command",
     "command": "bash /home/felipe/.claude/statusline-command.sh"
