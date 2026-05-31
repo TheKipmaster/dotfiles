@@ -10,14 +10,13 @@ URL = "https://api.openweathermap.org/data/2.5/weather"
 API_KEY = os.environ.get("OPENWEATHER_API_KEY")
 HEADER = {"User-agent": "Mozilla/5.0"}
 
-
 def get_city() -> str:
     try:
         r = requests.get("https://ipapi.co/json")
         return r.json()["city"]
     except:
         # print("E: couldn't get city name")
-        return "Brasilia"
+        return "Cabedelo"
 
 
 def unit_suffix(unit: str) -> str:
@@ -26,7 +25,7 @@ def unit_suffix(unit: str) -> str:
     elif unit == "imperial":
         unit = "ºF"
     else:
-        unit = " K"
+        unit = "ºK"
 
     return unit
 
