@@ -54,7 +54,7 @@ def main():
 
     time, height = data.next_low()
 
-    print(time, height)
+    print(time, '-', height)
 
 
 if __name__ == "__main__":
