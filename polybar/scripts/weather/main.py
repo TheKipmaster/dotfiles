@@ -12,11 +12,11 @@ HEADER = {"User-agent": "Mozilla/5.0"}
 
 def get_city() -> str:
     try:
-        r = requests.get("https://ipapi.co/json")
+        r = requests.get("http://ip-api.com/json")
         return r.json()["city"]
     except:
         # print("E: couldn't get city name")
-        return "Cabedelo"
+        return "Brasília"
 
 
 def unit_suffix(unit: str) -> str:
