@@ -3,3 +3,4 @@
 /i3/scripts/workspace_outputs.conf
 /nitrogen/nitrogen.cfg
 /polybar/scripts/weather/.env
+*__pycache__
