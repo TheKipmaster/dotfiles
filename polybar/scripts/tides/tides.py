@@ -1,18 +1,24 @@
 #!/usr/bin/env python3
 from tides_data import TidesData
+import datetime as dt
 
-def next_low(tides: TidesData) -> str:
-    for time, height in tides.todays_data().items():
-        if tides.format_time(time) > tides.today.time() and height < 1.5:
+def next_low(tides: TidesData, date: dt.datetime) -> str:
+    today = dt.datetime.today()
+
+    for time, height in tides.get_data_for(date).items():
+        time_obj = dt.datetime.strptime(time, "%H:%M").time()
+        datetime = dt.datetime.combine(date, time_obj)
+
+        if datetime > today and height < 1.5:
             return time, height
         
-    return next_low(TidesData(datetime=tides.tomorrow))
+    return next_low(tides, date + dt.timedelta(days=1))
 
 
 def main():
     tides = TidesData()
 
-    time, height = next_low(tides)
+    time, height = next_low(tides, dt.datetime.today())
 
     print(time, '-', height)
 
