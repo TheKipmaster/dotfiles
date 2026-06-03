@@ -14,9 +14,9 @@
 
 * {
   /* General */
-  text-font:                            "JetBrainsMono NFM Medium 15";
-  icon-font:                            "JetBrainsMono NFM Medium 15";
-  icon-font-small:                      "JetBrainsMono NFM Medium 10";
+  text-font:                            "JetBrainsMono Nerd Font Mono Medium 15";
+  icon-font:                            "JetBrainsMono Nerd Font Mono Medium 15";
+  icon-font-small:                      "JetBrainsMono Nerd Font Mono Medium 10";
 
   option-6-listview-spacing:            10px;
 
@@ -27,7 +27,7 @@
 }
 
 element-text {
-	font:							"JetBrainsMono NFM Medium 28";
+	font:							"JetBrainsMono Nerd Font Mono Medium 20";
     expand:                         true;
     horizontal-align:               0.5;
     vertical-align:                 0.5;

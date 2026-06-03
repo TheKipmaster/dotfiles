@@ -16,6 +16,10 @@
 
     /* Theme colors */
     background:                  @i3-unfocused-bg;
+    background-light:            @i3-focused-bg;
+    accent:                      @gruvbox-dark-yellow-dark;
+    on:                          #b8bb26;
+    off:                         @gruvbox-dark-red-dark;
     background-color:            @background;
     foreground:                  @gruvbox-dark-fg1;
     border-color:                @i3-inactive-bg;

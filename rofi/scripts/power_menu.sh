@@ -12,7 +12,7 @@ uptime=$(uptime -p | sed -e 's/up //g')
 shutdown=""
 reboot=""
 lock=""
-suspend=""
+suspend="󰤄"
 logout="󰍃"
  
 # Variable passed to rofi
@@ -27,7 +27,7 @@ case $chosen in
         i3exit reboot
         ;;
     $lock)
-        screen-lock
+        i3exit lock
         ;;
     $suspend)
         i3exit suspend
