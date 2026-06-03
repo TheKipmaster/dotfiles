@@ -28,6 +28,10 @@ class TidesData():
         return self._today
 
     @property
+    def tomorrow(self) -> dt.datetime:
+        return self.today + dt.timedelta(days=1)
+
+    @property
     def date_str(self) -> str:
         return self.today.strftime('%Y-%m-%d')
 
@@ -40,6 +44,3 @@ class TidesData():
 
     def todays_data(self) -> dict:
         return self.data[self.date_str]
-
-    def tomorrow(self) -> dt.datetime:
-        return self.today + dt.timedelta(days=1)
