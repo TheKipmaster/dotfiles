@@ -6,7 +6,7 @@ def next_low(tides: TidesData) -> str:
         if tides.format_time(time) > tides.today.time() and height < 1.5:
             return time, height
         
-    return next_low(TidesData(tides.tomorrow))
+    return next_low(TidesData(datetime=tides.tomorrow))
 
 
 def main():
