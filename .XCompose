@@ -1,4 +1,4 @@
 include "%L"
 
-<dead_acute> <c> : "ç"
-<dead_acute> <C> : "Ç"
+<dead_acute> <c> : ccedilla
+<dead_acute> <C> : Ccedilla
