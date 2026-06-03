@@ -5,9 +5,9 @@
     scrollbar: true;
 
     /* Kipmaster dark colors */
-    i3-unfocused-bg:           #2d0807;
-    i3-focused-bg:             #680d18;
-    i3-inactive-bg:            #ba868a;
+    i3-unfocused-bg:           #20072d;
+    i3-focused-bg:             #502168;
+    i3-inactive-bg:            #a986ba;
     gruvbox-dark-fg1:          #ebdbb2;
     gruvbox-dark-red-dark:     #cc241d;
     gruvbox-dark-red-light:    #fb4934;

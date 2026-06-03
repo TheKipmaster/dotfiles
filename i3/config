@@ -158,9 +158,9 @@ workspace_layout tabbed
 
 ################################ Window Colors #################################
 ### class               border  backgr. text    indctr. child_border
-client.focused          #9e4a59 #680d18 #ffffff #fff066 #9d1c33
-client.focused_inactive #333333 #ba868a #000000 #484e50 #680d18
-client.unfocused        #333333 #2d0807 #888888 #292d2e #2d0807
+client.focused          #824a9e #502168 #ffffff #fff066 #721c9d
+client.focused_inactive #333333 #a986ba #000000 #484e50 #502168
+client.unfocused        #333333 #20072d #888888 #292d2e #20072d
 client.urgent           #edc96b #fff066 #000000 #fff066 #fff066
 
 ##################### Workspace-to-output assignments #########################
