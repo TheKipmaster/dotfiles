@@ -31,6 +31,10 @@ sudo apt install -y i3 \
     libxcursor-dev polybar \
     nitrogen picom rofi
 
+git clone https://aur.archlinux.org/i3exit.git
+chmod +x ./i3exit/blurlock ./i3exit/i3exit
+mv ./i3exit/blurlock ./i3exit/i3exit /usr/local/bin
+
 ############ Snap #######################################################################
 snaps=(
     "code --classic"
