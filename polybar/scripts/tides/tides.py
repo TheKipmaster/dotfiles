@@ -2,16 +2,16 @@
 
 from os import path
 import json
-from datetime import datetime as dt
+import datetime as dt
 
-class LoadData():
+class TidesData():
     def __init__(
-        self, json_file='mare_cabedelo_2026.json',
-        locale='Cabedelo', datetime=dt.today()
+        self, json_path='mare_cabedelo_2026.json',
+        locale='Cabedelo', datetime=dt.datetime.today()
     ):
-        self._json_path = path.join(path.dirname(path.abspath(__file__)), json_file)
+        self._json_path = path.join(path.dirname(path.abspath(__file__)), json_path)
         self._locale = locale
-        self._datetime = datetime
+        self._today = datetime
 
         with open(self.json_path, 'r') as file:
             self._data = json.load(file)
@@ -25,34 +25,39 @@ class LoadData():
         return self._locale
     
     @property
-    def datetime(self) -> dt:
-        return self._datetime
+    def today(self) -> dt.datetime:
+        return self._today
     
     @property
     def date_str(self) -> str:
-        return self.datetime.strftime('%Y-%m-%d')
+        return self.today.strftime('%Y-%m-%d')
     
     @property
     def data(self) -> dict:
         return self._data
     
-    def format_time(self, time_str: str) -> dt.time:
-        return dt.strptime(time_str, '%H:%M').time()
-    
-    def todays_data(self) -> dict:
-        return self.data[self.date_str]
-    
-    def next_low(self) -> tuple[str, str]:
-        for time, height in self.todays_data().items():
-            if self.format_time(time) > self.datetime.time() and height < 1.5:
-                return time, height
+    def format_time(self, time_str: str) -> dt.datetime.time:
+        return dt.datetime.strptime(time_str, '%H:%M').time()
 
+    def todays_data(self) -> dict:
+        return self.data[self.date_str]    
+
+    def tomorrow(self) -> dt.datetime:
+        return self.today + dt.timedelta(days=1)
+    
+
+def next_low(tides: TidesData) -> str:
+    for time, height in tides.todays_data().items():
+        if tides.format_time(time) > tides.today.time() and height < 1.5:
+            return time, height
+        
+    return next_low(TidesData(tides.tomorrow))
 
 
 def main():
-    data = LoadData()
+    tides = TidesData()
 
-    time, height = data.next_low()
+    time, height = next_low(tides)
 
     print(time, '-', height)
 
