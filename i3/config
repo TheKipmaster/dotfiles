@@ -169,6 +169,9 @@ client.urgent           #edc96b #fff066 #000000 #fff066 #fff066
 # will simply assign workspaces to whatever outputs are available.
 include ~/.config/i3/scripts/workspace_outputs.conf
 
+#################### Open feh as floating window by default ####################
+for_window [class="feh"] floating enable
+
 ####################### Open apps in specific workspaces #######################
 ### Left
 assign [class="kitty"] 1

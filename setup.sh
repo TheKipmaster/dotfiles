@@ -23,7 +23,7 @@ tide configure --auto --style=Rainbow --prompt_colors='16 colors' \
     --prompt_spacing=Compact --icons='Many icons' --transient=Yes
 
 ############ Utils ######################################################################
-sudo apt install -y fd-find batcat pavucontrol
+sudo apt install -y fd-find batcat pavucontrol feh
 ln -s "$(which batcat)" ~/.local/bin/bat
 
 ############ i3 #########################################################################
