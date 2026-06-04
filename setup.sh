@@ -145,6 +145,7 @@ home_dotfiles=(
     "$DOTFILES/.zshrc"
     "$DOTFILES/.XCompose"
     "$DOTFILES/.bashrc"
+    "$DOTFILES/.profile"
 )
 ln -sf "${home_dotfiles[@]}" "$HOME"
 
