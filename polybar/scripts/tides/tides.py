@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
-from tides_data import TidesData
 import datetime as dt
+
+from tides_data import TidesData
+from tides_chart import generate_chart
 
 def next_low(tides: TidesData, date: dt.datetime) -> str:
     today = dt.datetime.today()
@@ -21,6 +23,7 @@ def main():
     time, height = next_low(tides, dt.datetime.today())
 
     print(time, '-', height)
+    generate_chart()
 
 
 if __name__ == "__main__":
