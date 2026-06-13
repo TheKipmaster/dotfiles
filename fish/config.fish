@@ -3,4 +3,5 @@ if status is-interactive
     alias bat="batcat"
     alias fd="fdfind"
     alias pat="php artisan tinker"
+    alias ggupdate="sudo apt update && sudo apt upgrade -y"
 end
