@@ -40,6 +40,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
+# take a screenshot
+bindsym $mod+F12 exec flameshot screen -p ~/Pictures/Screenshots
+bindsym $mod+Shift+F12 exec flameshot gui -c
+
 # start a terminal
 bindsym $mod+Return exec --no-startup-id /home/felipe/.local/kitty.app/bin/kitty
 
@@ -214,6 +218,9 @@ exec_always --no-startup-id nitrogen --restore
 
 # Set volume to 50%
 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ 50%
+
+# Start Flameshot
+exec --no-startup-id flameshot
 
 # Set keyboard layout to us intl
 # exec_always --no-startup-id sleep 5 && setxkbmap -layout us -variant intl

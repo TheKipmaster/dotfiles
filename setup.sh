@@ -4,7 +4,7 @@
 sudo add-apt-repository ppa:fish-shell/release-4
 sudo apt update
 
-sudo apt install -y curl npm fish
+sudo apt install -y curl npm fish flameshot
 
 ############ Fisher #####################################################################
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish \
