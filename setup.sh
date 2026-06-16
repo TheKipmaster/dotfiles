@@ -149,6 +149,9 @@ home_dotfiles=(
 )
 ln -sf "${home_dotfiles[@]}" "$HOME"
 
+agent_files=("$DOTFILES/agents/*.md")
+ln -sf "${agent_files[@]}" "$HOME/.claude/agents"
+
 claude_files=("$DOTFILES/agents/claude"/*)
 ln -sf "${claude_files[@]}" "$HOME/.claude"
 
