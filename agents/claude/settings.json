@@ -11,6 +11,7 @@
       "Bash(cat *)",
       "Bash(wc *)",
       "Bash(obsidian *)",
+      "Bash(~/.local/bin/obsidian *)",
       "Read(~/Zettelkasten/**)",
       "Write(~/Zettelkasten/Seeds/**)",
       "Read(/tmp/claude-1000/)"
