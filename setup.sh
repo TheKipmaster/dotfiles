@@ -149,15 +149,19 @@ home_dotfiles=(
 )
 ln -sf "${home_dotfiles[@]}" "$HOME"
 
-agent_files=("$DOTFILES/agents/*.md")
+agent_files=("$DOTFILES/agents"/*.md)
 ln -sf "${agent_files[@]}" "$HOME/.claude/agents"
 
 claude_files=("$DOTFILES/agents/claude"/*)
 ln -sf "${claude_files[@]}" "$HOME/.claude"
 
+# -n keeps re-runs from nesting each skill dir inside the symlink the last run made
+skill_dirs=("$DOTFILES/agents/skills"/*)
+ln -sfn "${skill_dirs[@]}" "$HOME/.claude/skills"
+
 ln -sf "$DOTFILES/agents/pi/sandbox.json" "$HOME/.pi/agent/extensions"
 ln -sf "$DOTFILES/agents/pi/CLAUDE.md" "$HOME/.pi/agent/"
-ln -sf "$DOTFILES/agents/pi/SYSTEM.md" "$HOME/.pi/agent/"
+ln -sf "$DOTFILES/agents/pi/APPEND_SYSTEM.md" "$HOME/.pi/agent/"
 
 sudo chmod +x "$CONFIG/dunst/dunstrc"
 
