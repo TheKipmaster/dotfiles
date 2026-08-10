@@ -13,7 +13,10 @@
       "Bash(obsidian *)",
       "Bash(~/.local/bin/obsidian *)",
       "Read(~/Zettelkasten/**)",
+      "Edit(~/Zettelkasten/Seeds/**)",
       "Write(~/Zettelkasten/Seeds/**)",
+      "Edit(~/Zettelkasten/Learning/**)",
+      "Write(~/Zettelkasten/Learning/**)",
       "Read(/tmp/claude-1000/)"
     ],
     "deny": [
