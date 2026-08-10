@@ -130,3 +130,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/home/felipe/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/felipe/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+
+# Turso
+export PATH="$PATH:/home/felipe/.turso"
