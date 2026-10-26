@@ -33,6 +33,9 @@
     "command": "bash /home/felipe/.claude/statusline-command.sh",
     "refreshInterval": 60
   },
+  "enabledPlugins": {
+    "mattpocock-skills@claude-plugins-official": true
+  },
   "sandbox": {
     "enabled": true,
     "autoAllowBashIfSandboxed": true,
@@ -60,6 +63,12 @@
     "enableWeakerNestedSandbox": false
   },
   "effortLevel": "high",
+  "tui": "fullscreen",
   "theme": "dark",
-  "tui": "fullscreen"
+  "agentPushNotifEnabled": true,
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "high"
+    }
+  }
 }
