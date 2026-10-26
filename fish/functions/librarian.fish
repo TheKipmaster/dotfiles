@@ -6,5 +6,5 @@ function librarian
     end
 
     cd ~/Zettelkasten
-    claude --settings '{"sandbox":{"enabled":false}}' --agent librarian "/catalog"
+    claude --settings '{"sandbox":{"enabled":false}}' --agent librarian "drain the inbox"
 end

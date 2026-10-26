@@ -1,6 +1,6 @@
 ---
 name: librarian
-description: Drains Seeds/_inbox.md into the Zettelkasten concept backlog — searches, dedups, categorizes, links, and files captured concepts into Seed Notes. Dispatched by /catalog.
+description: Drains Seeds/_inbox.md into the Zettelkasten concept backlog — searches, dedups, categorizes, links, and files captured concepts into Seed Notes.
 tools: Read, Write, Edit, Bash, Grep, Glob
 model: sonnet
 ---
